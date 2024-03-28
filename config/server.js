@@ -7,4 +7,8 @@ module.exports = ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
+  // Ustaw tryb na development, jeśli NODE_ENV jest ustawione na 'development'
+  ...(process.env.NODE_ENV === 'development' && { 
+    devMode: true 
+  }),
 });
